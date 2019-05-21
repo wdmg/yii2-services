@@ -18,9 +18,9 @@ return [
     'The system cache has been successfully cleared!' => 'Кеш системы был успешно очищен!',
     'Error clearing the system cache.' => 'Ошибка очистки кеша системы.',
     'Web-assets have been successfully cleared!' => 'Web-assets был успешно очищен!',
-    'Error clearing the web assets cache. Folder {filename} could not be deleted.' => 'Ошибка очистки кеша web-assets. Папку {filename} не удалось удалить.',
+    'Error clearing the web-assets cache.' => 'Ошибка очистки кеша web-assets.',
     'Runtime has been successfully cleaned!' => 'Runtime был успешно очищен!',
-    'Error clearing runtime cache. Folder {filename} could not be deleted.' => 'Ошибка очистки кеша runtime. Папку {filename} не удалось удалить.',
+    'Error clearing runtime cache.' => 'Ошибка очистки кеша runtime.',
     'Folder {filename} could not be deleted.' => 'Папку {filename} не удалось удалить.',
 
 ];

@@ -138,7 +138,6 @@ class ServicesController extends Controller
                 ];
             }
         } else if($action == 'clear' && $target == 'assets') {
-
             if($model::clearDir($asset)) {
                 $alerts[] = [
                     'type' => 'success',
@@ -147,11 +146,10 @@ class ServicesController extends Controller
             } else {
                 $alerts[] = [
                     'type' => 'warning',
-                    'message' => Yii::t('module', 'Folder {filename} could not be deleted.', ['filename' => $remove]),
+                    'message' => Yii::t('app/modules/services', 'Error clearing the web-assets cache.'),
                 ];
             }
         } else if($action == 'clear' && $target == 'runtime') {
-
             if($model::clearDir($runtime)) {
                 $alerts[] = [
                     'type' => 'success',
@@ -160,7 +158,7 @@ class ServicesController extends Controller
             } else {
                 $alerts[] = [
                     'type' => 'warning',
-                    'message' => Yii::t('module', 'Folder {filename} could not be deleted.', ['filename' => $remove]),
+                    'message' => Yii::t('app/modules/services', 'Error clearing runtime cache.'),
                 ];
             }
         }
