@@ -6,7 +6,7 @@ namespace wdmg\services;
  * Yii2 Services
  *
  * @category        Module
- * @version         0.0.1
+ * @version         0.0.2
  * @author          Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>
  * @link            https://github.com/wdmg/yii2-tasks
  * @copyright       Copyright (c) 2019 W.D.M.Group, Ukraine
@@ -44,7 +44,7 @@ class Module extends \yii\base\Module
     /**
      * @var string the module version
      */
-    private $version = "0.0.1";
+    private $version = "0.0.2";
 
     /**
      * @var integer, priority of initialization
