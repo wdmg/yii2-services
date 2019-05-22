@@ -33,9 +33,20 @@ $bundle = MainAsset::register($this);
         </a>
         <a href="?action=clear&target=cache" class="col-xs-4 col-sm-3 col-md-2 list-group-item">
             <span class="icon glyphicon glyphicon-erase"></span>
-            <?= Yii::t('app/modules/services', 'Clear the system cache') ?>
+            <?= Yii::t('app/modules/services', 'Clear system cache') ?>
             <span class="descr text-primary"><?= $size["cache"]; ?></span>
         </a>
+<?php
+    if(class_exists('\wdmg\activity\models\Activity') && isset(Yii::$app->modules['activity'])) {
+        ?>
+        <a href="<?php if ($size["activity"] == 0) echo '#'; else echo '?action=clear&target=activity'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["activity"] == 0) echo ' disabled'; ?>">
+            <span class="icon glyphicon glyphicon-signal"></span>
+            <?= Yii::t('app/modules/services', 'Clear users activity') ?>
+            <span class="descr text-primary"><?= $size["activity"]; ?></span>
+        </a>
+        <?php
+    }
+?>
     </div>
 </div>
 

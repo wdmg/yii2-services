@@ -8,7 +8,8 @@ return [
     'Restore directory rights' => 'Восстановить права',
     'Clear runtime cache' => 'Очистить runtime кэш',
     'Clear web cache' => 'Очистить web кэш',
-    'Clear the system cache' => 'Очистить системный кеш',
+    'Clear system cache' => 'Очистить системный кеш',
+    'Clear users activity' => 'Очистить активность пользователей',
 
 
     'Writing rights (0777) successfully installed!' => 'Права на запись (0777) успешно установлены!',
@@ -22,6 +23,8 @@ return [
     'Runtime has been successfully cleaned!' => 'Runtime был успешно очищен!',
     'Error clearing runtime cache.' => 'Ошибка очистки кеша runtime.',
     'Folder {filename} could not be deleted.' => 'Папку {filename} не удалось удалить.',
+    'Users activity log has been successfully cleaned!' => 'Лог активности пользователей успешно очищен!',
+    'Error clearing users activity log.' => 'Ошибка очистки лога активности пользователей.',
 
 ];
 

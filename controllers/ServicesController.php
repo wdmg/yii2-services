@@ -163,19 +163,40 @@ class ServicesController extends Controller
             }
         }
 
+        if(class_exists('\wdmg\activity\models\Activity') && isset(Yii::$app->modules['activity'])) {
+            $activity = new \wdmg\activity\models\Activity();
+            if($action == 'clear' && $target == 'activity') {
+                $removed = $activity::deleteAll();
+                if($removed > 0) {
+                    $alerts[] = [
+                        'type' => 'success',
+                        'message' => Yii::t('app/modules/services', 'Users activity log has been successfully cleaned!'),
+                    ];
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/services', 'Error clearing users activity log.'),
+                    ];
+                }
+            }
+            $size['activity'] = intval($activity::find()->count()) . ' records';
+        }
+
         foreach ($alerts as $alert) {
             Yii::$app->getSession()->setFlash($alert['type'], $alert['message']);
         }
 
-        // Calculate sizies of chache
         $size['assets'] = $model::formatSize($model::directorySize($asset));
         $size['runtime'] = $model::formatSize($model::directorySize($runtime));
         $size['cache'] = $model::formatSize($model::directorySize($cache));
 
-        return $this->render('index', [
-            'model' => $model,
-            'size' => $size
-        ]);
+        if(!empty($action) || !empty($target)) {
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('index', [
+                'model' => $model,
+                'size' => $size
+            ]);
+        }
     }
-
 }
