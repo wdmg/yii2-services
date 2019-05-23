@@ -6,6 +6,9 @@ System Service Manager for Yii2
 # Requirements 
 * PHP 5.6 or higher
 * Yii2 v.2.0.13 and newest
+* [Yii2 Activity](https://github.com/wdmg/yii2-activity) module (support/optionaly)
+* [Yii2 Stats](https://github.com/wdmg/yii2-stats) module (support/optionaly)
+* [Yii2 Users](https://github.com/wdmg/yii2-users) module (support/optionaly)
 
 
 # Installation
@@ -56,5 +59,6 @@ Use the `Module::dashboardNavItems()` method of the module to generate a navigat
     ?>
 
 # Status and version [in progress development]
+* v.1.1.0 - Added clearing statistics, added deleting unconfirmed and blocked users
 * v.1.0.0 - Added service controls and model methods
 * v.0.0.2 - Base module, controllers and views

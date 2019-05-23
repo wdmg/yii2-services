@@ -9,7 +9,10 @@ return [
     'Clear runtime cache' => 'Очистить runtime кэш',
     'Clear web cache' => 'Очистить web кэш',
     'Clear system cache' => 'Очистить системный кеш',
-    'Clear users activity' => 'Очистить активность пользователей',
+    'Clear users activity' => 'Очистить пользовательскую активность',
+    'Clear statistics' => 'Очистить статистику посещений',
+    'Delete unconfirmed users' => 'Удалить неподтвержденных пользователей',
+    'Delete blocked users' => 'Удалить заблокированных пользователей',
 
 
     'Writing rights (0777) successfully installed!' => 'Права на запись (0777) успешно установлены!',
@@ -25,6 +28,12 @@ return [
     'Folder {filename} could not be deleted.' => 'Папку {filename} не удалось удалить.',
     'Users activity log has been successfully cleaned!' => 'Лог активности пользователей успешно очищен!',
     'Error clearing users activity log.' => 'Ошибка очистки лога активности пользователей.',
+    'Statistics has been successfully cleaned!' => 'Статистика была успешно очищена!',
+    'Error clearing statistics.' => 'Ошибка очистки статистики.',
+    'Unconfirmed users has been successfully deleted!' => 'Неподтвержденные пользователи успешно удалены.',
+    'Error deleting unconfirmed users.' => 'Ошибка удаления неподтвержденных пользователей.',
+    'Blocked users has been successfully deleted!' => 'Заблокированные пользователи успешно удалены.',
+    'Error deleting blocked users.' => 'Ошибка удаления заблокированных пользователей.',
 
 ];
 

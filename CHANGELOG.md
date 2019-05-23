@@ -1,6 +1,10 @@
 Changelog
 =========
 
+## 1.1.0 (2019-05-24)
+ * Added deleting unconfirmed and blocked users
+ * Added clearing statistics
+ 
 ## 1.0.0 (2019-05-22)
  * Added service controls and model methods
  * Added assets

@@ -179,7 +179,97 @@ class ServicesController extends Controller
                     ];
                 }
             }
-            $size['activity'] = intval($activity::find()->count()) . ' records';
+            $size['activity'] = intval($activity::find()->count());
+        }
+
+        if(class_exists('\wdmg\stats\models\Visitors') && isset(Yii::$app->modules['stats'])) {
+            $stats = new \wdmg\stats\models\Visitors();
+            if($action == 'clear' && $target == 'stats') {
+                $removed = $stats::deleteAll();
+                if($removed > 0) {
+                    $alerts[] = [
+                        'type' => 'success',
+                        'message' => Yii::t('app/modules/services', 'Statistics has been successfully cleaned!'),
+                    ];
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/services', 'Error clearing statistics.'),
+                    ];
+                }
+            }
+            $size['stats'] = intval($stats::find()->count());
+        }
+
+        if(class_exists('\wdmg\users\models\Users') && isset(Yii::$app->modules['users'])) {
+            $users = new \wdmg\users\models\Users();
+
+            if($action == 'clear' && $target == 'users-unconfirmed') {
+                $removed = $users::find()
+                    ->where(['status' => $users::USR_STATUS_WAITING])
+                    ->andWhere(
+                        'updated_at <= NOW() - INTERVAL 1 DAY'
+                    )->all();
+
+                $count = 0;
+                foreach ($removed as $remove) {
+                    if($remove->delete())
+                        $count++;
+                }
+
+                if($count > 0) {
+                    $alerts[] = [
+                        'type' => 'success',
+                        'message' => Yii::t('app/modules/services', 'Unconfirmed users has been successfully deleted!'),
+                    ];
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/services', 'Error deleting unconfirmed users.'),
+                    ];
+                }
+            }
+
+            if($action == 'clear' && $target == 'users-blocked') {
+                $removed = $users::find()
+                    ->where([
+                        'or',
+                        ['status' => $users::USR_STATUS_DELETED],
+                        ['status' => $users::USR_STATUS_BLOCKED]
+                    ])->all();
+
+                $count = 0;
+                foreach ($removed as $remove) {
+                    if($remove->delete())
+                        $count++;
+                }
+
+                if($count > 0) {
+                    $alerts[] = [
+                        'type' => 'success',
+                        'message' => Yii::t('app/modules/services', 'Blocked users has been successfully deleted!'),
+                    ];
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/services', 'Error deleting blocked users.'),
+                    ];
+                }
+            }
+
+            $size['users']['unconfirmed'] = intval($users::find()
+                ->where(['status' => $users::USR_STATUS_WAITING])
+                ->andWhere(
+                    'updated_at <= NOW() - INTERVAL 1 DAY'
+                )->count());
+
+            $size['users']['blocked'] = intval($users::find()
+                ->where([
+                    'or',
+                    ['status' => $users::USR_STATUS_DELETED],
+                    ['status' => $users::USR_STATUS_BLOCKED]
+                ])->count());
+
         }
 
         foreach ($alerts as $alert) {
