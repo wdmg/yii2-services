@@ -3,8 +3,9 @@
 return [
 
     'Service' => 'Сервис',
-    'Services' => 'Сервисное обслуживание',
+    'System Service Manager' => 'Диспетчер системного обслуживания',
 
+    'Services' => 'Сервисное обслуживание',
     'Restore directory rights' => 'Восстановить права',
     'Clear runtime cache' => 'Очистить runtime кэш',
     'Clear web cache' => 'Очистить web кэш',
@@ -13,6 +14,9 @@ return [
     'Clear statistics' => 'Очистить статистику посещений',
     'Delete unconfirmed users' => 'Удалить неподтвержденных пользователей',
     'Delete blocked users' => 'Удалить заблокированных пользователей',
+    'Disable all users' => 'Деактивировать всех пользователей',
+    'Delete disabled users' => 'Удалить деактивированных пользователей',
+    'Drop all access-token`s' => 'Сбросить все токены доступа',
 
 
     'Writing rights (0777) successfully installed!' => 'Права на запись (0777) успешно установлены!',

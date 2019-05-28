@@ -59,6 +59,5 @@ Use the `Module::dashboardNavItems()` method of the module to generate a navigat
     ?>
 
 # Status and version [in progress development]
+* v.1.1.1 - Added module name and description, translations. Routing fix.
 * v.1.1.0 - Added clearing statistics, added deleting unconfirmed and blocked users
-* v.1.0.0 - Added service controls and model methods
-* v.0.0.2 - Base module, controllers and views

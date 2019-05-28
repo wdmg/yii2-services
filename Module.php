@@ -6,7 +6,7 @@ namespace wdmg\services;
  * Yii2 Services
  *
  * @category        Module
- * @version         1.1.0
+ * @version         1.1.1
  * @author          Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>
  * @link            https://github.com/wdmg/yii2-tasks
  * @copyright       Copyright (c) 2019 W.D.M.Group, Ukraine
@@ -37,6 +37,16 @@ class Module extends \yii\base\Module
     public $routePrefix = "admin";
 
     /**
+     * @var string, the name of module
+     */
+    public $name = "Service";
+
+    /**
+     * @var string, the description of module
+     */
+    public $description = "System Service Manager";
+
+    /**
      * @var string the vendor name of module
      */
     private $vendor = "wdmg";
@@ -44,7 +54,7 @@ class Module extends \yii\base\Module
     /**
      * @var string the module version
      */
-    private $version = "1.1.0";
+    private $version = "1.1.1";
 
     /**
      * @var integer, priority of initialization
@@ -114,6 +124,10 @@ class Module extends \yii\base\Module
 
             },
         ];
+
+        // Name and description translation of module
+        $this->name = Yii::t('app/modules/services', $this->name);
+        $this->description = Yii::t('app/modules/services', $this->description);
     }
 
     public static function t($category, $message, $params = [], $language = null)
@@ -142,7 +156,7 @@ class Module extends \yii\base\Module
     public function dashboardNavItems()
     {
         return [
-            'label' => Yii::t('app/modules/services', 'Service'),
+            'label' => $this->name,
             'url' => [$this->routePrefix . '/services/'],
             'active' => in_array(\Yii::$app->controller->module->id, ['services'])
         ];

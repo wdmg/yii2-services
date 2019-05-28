@@ -1,6 +1,9 @@
 .services-index .list-group.tabs-list {
   list-style: none; }
-  .services-index .list-group.tabs-list > .list-group-item {
+  .services-index .list-group.tabs-list .page-title {
+    line-height: 2.5rem;
+    border-bottom: 1px solid #f5f5f5; }
+  .services-index .list-group.tabs-list .list-group-item {
     text-align: center;
     border: 0;
     text-decoration: none;
@@ -8,21 +11,21 @@
     padding: 15px;
     border-radius: 6px;
     background: '#f5f5f5'; }
-    .services-index .list-group.tabs-list > .list-group-item > .icon {
+    .services-index .list-group.tabs-list .list-group-item > .icon {
       display: inline-block;
       width: 100%;
       text-align: center;
       font-size: 32px;
       padding: 10px; }
-    .services-index .list-group.tabs-list > .list-group-item > .descr {
+    .services-index .list-group.tabs-list .list-group-item > .descr {
       display: inline-block;
       width: 100%;
       text-align: center;
       font-size: 12px; }
-    .services-index .list-group.tabs-list > .list-group-item > .warning {
+    .services-index .list-group.tabs-list .list-group-item > .warning {
       display: inline-block;
       color: orangered; }
-    .services-index .list-group.tabs-list > .list-group-item:hover, .services-index .list-group.tabs-list > .list-group-item:focus {
+    .services-index .list-group.tabs-list .list-group-item:hover, .services-index .list-group.tabs-list .list-group-item:focus {
       background: '#f9f9f9'; }
 
 /*# sourceMappingURL=services.css.map */

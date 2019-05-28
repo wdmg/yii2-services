@@ -272,6 +272,27 @@ class ServicesController extends Controller
 
         }
 
+
+        if(class_exists('\wdmg\api\models\API') && isset(Yii::$app->modules['api'])) {
+            $clients = new \wdmg\api\models\API();
+
+            if($action == 'clear' && $target == 'api-disable') {
+
+            }
+
+            if($action == 'clear' && $target == 'api-delete') {
+
+            }
+
+            if($action == 'clear' && $target == 'api-tokens') {
+
+            }
+
+            $size['api']['users'] = intval($clients::find()->count());
+            $size['api']['disabled'] = intval($clients::find()->where(['status' => $clients::API_CLIENT_STATUS_DISABLED])->count());
+            $size['api']['tokens'] = intval($clients::find()->where(['status' => $clients::API_CLIENT_STATUS_ACTIVE])->count());
+        }
+
         foreach ($alerts as $alert) {
             Yii::$app->getSession()->setFlash($alert['type'], $alert['message']);
         }
