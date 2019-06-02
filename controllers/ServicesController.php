@@ -163,11 +163,12 @@ class ServicesController extends Controller
             }
         }
 
-        if(class_exists('\wdmg\activity\models\Activity') && isset(Yii::$app->modules['activity'])) {
+        if (class_exists('\wdmg\activity\models\Activity') && $this->module->moduleLoaded('activity')) {
             $activity = new \wdmg\activity\models\Activity();
-            if($action == 'clear' && $target == 'activity') {
+
+            if ($action == 'clear' && $target == 'activity') {
                 $removed = $activity::deleteAll();
-                if($removed > 0) {
+                if ($removed > 0) {
                     $alerts[] = [
                         'type' => 'success',
                         'message' => Yii::t('app/modules/services', 'Users activity log has been successfully cleaned!'),
@@ -182,11 +183,13 @@ class ServicesController extends Controller
             $size['activity'] = intval($activity::find()->count());
         }
 
-        if(class_exists('\wdmg\stats\models\Visitors') && isset(Yii::$app->modules['stats'])) {
+
+        if (class_exists('\wdmg\stats\models\Visitors') && $this->module->moduleLoaded('stats')) {
             $stats = new \wdmg\stats\models\Visitors();
-            if($action == 'clear' && $target == 'stats') {
+
+            if ($action == 'clear' && $target == 'stats') {
                 $removed = $stats::deleteAll();
-                if($removed > 0) {
+                if ($removed > 0) {
                     $alerts[] = [
                         'type' => 'success',
                         'message' => Yii::t('app/modules/services', 'Statistics has been successfully cleaned!'),
@@ -201,10 +204,10 @@ class ServicesController extends Controller
             $size['stats'] = intval($stats::find()->count());
         }
 
-        if(class_exists('\wdmg\users\models\Users') && isset(Yii::$app->modules['users'])) {
+        if (class_exists('\wdmg\users\models\Users') && $this->module->moduleLoaded('users')) {
             $users = new \wdmg\users\models\Users();
 
-            if($action == 'clear' && $target == 'users-unconfirmed') {
+            if ($action == 'clear' && $target == 'users-unconfirmed') {
                 $removed = $users::find()
                     ->where(['status' => $users::USR_STATUS_WAITING])
                     ->andWhere(
@@ -213,11 +216,11 @@ class ServicesController extends Controller
 
                 $count = 0;
                 foreach ($removed as $remove) {
-                    if($remove->delete())
+                    if ($remove->delete())
                         $count++;
                 }
 
-                if($count > 0) {
+                if ($count > 0) {
                     $alerts[] = [
                         'type' => 'success',
                         'message' => Yii::t('app/modules/services', 'Unconfirmed users has been successfully deleted!'),
@@ -230,7 +233,7 @@ class ServicesController extends Controller
                 }
             }
 
-            if($action == 'clear' && $target == 'users-blocked') {
+            if ($action == 'clear' && $target == 'users-blocked') {
                 $removed = $users::find()
                     ->where([
                         'or',
@@ -244,7 +247,7 @@ class ServicesController extends Controller
                         $count++;
                 }
 
-                if($count > 0) {
+                if ($count > 0) {
                     $alerts[] = [
                         'type' => 'success',
                         'message' => Yii::t('app/modules/services', 'Blocked users has been successfully deleted!'),
@@ -272,19 +275,18 @@ class ServicesController extends Controller
 
         }
 
-
-        if(class_exists('\wdmg\api\models\API') && isset(Yii::$app->modules['api'])) {
+        if (class_exists('\wdmg\api\models\API') && $this->module->moduleLoaded('api')) {
             $clients = new \wdmg\api\models\API();
 
-            if($action == 'clear' && $target == 'api-disable') {
+            if ($action == 'clear' && $target == 'api-disable') {
 
             }
 
-            if($action == 'clear' && $target == 'api-delete') {
+            if ($action == 'clear' && $target == 'api-delete') {
 
             }
 
-            if($action == 'clear' && $target == 'api-tokens') {
+            if ($action == 'clear' && $target == 'api-tokens') {
 
             }
 
@@ -305,6 +307,7 @@ class ServicesController extends Controller
             return $this->redirect(['index']);
         } else {
             return $this->render('index', [
+                'module' => $this->module,
                 'model' => $model,
                 'size' => $size
             ]);

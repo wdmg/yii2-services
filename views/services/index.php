@@ -40,10 +40,10 @@ $bundle = MainAsset::register($this);
             </a>
         </div>
 <?php
-    if(class_exists('\wdmg\activity\models\Activity') && isset(Yii::$app->modules['activity'])) {
+    if ($intance = $module->moduleLoaded('activity', true)) {
 ?>
     <div class="col-xs-12" style="padding-bottom:20px;">
-        <h4 class="page-title"><?= Yii::$app->getModule('activity')->name; ?></h4>
+        <h4 class="page-title"><?= $intance->name; ?></h4>
         <a href="<?php if ($size["activity"] == 0) echo '#'; else echo '?action=clear&target=activity'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["activity"] == 0) echo ' disabled'; ?>">
             <span class="icon glyphicon glyphicon-bell"></span>
             <?= Yii::t('app/modules/services', 'Clear users activity') ?>
@@ -54,10 +54,10 @@ $bundle = MainAsset::register($this);
     }
 ?>
 <?php
-    if(class_exists('\wdmg\stats\models\Visitors') && isset(Yii::$app->modules['stats'])) {
+    if ($intance = $module->moduleLoaded('stats', true)) {
 ?>
     <div class="col-xs-12" style="padding-bottom:20px;">
-        <h4 class="page-title"><?= Yii::$app->getModule('stats')->name; ?></h4>
+        <h4 class="page-title"><?= $intance->name; ?></h4>
         <a href="<?php if ($size["stats"] == 0) echo '#'; else echo '?action=clear&target=stats'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["stats"] == 0) echo ' disabled'; ?>">
             <span class="icon glyphicon glyphicon-signal"></span>
             <?= Yii::t('app/modules/services', 'Clear statistics') ?>
@@ -68,10 +68,10 @@ $bundle = MainAsset::register($this);
     }
 ?>
 <?php
-    if(class_exists('\wdmg\users\models\Users') && isset(Yii::$app->modules['users'])) {
+    if ($intance = $module->moduleLoaded('users', true)) {
 ?>
     <div class="col-xs-12" style="padding-bottom:20px;">
-        <h4 class="page-title"><?= Yii::$app->getModule('users')->name; ?></h4>
+        <h4 class="page-title"><?= $intance->name; ?></h4>
         <a href="<?php if ($size["users"]["unconfirmed"] == 0) echo '#'; else echo '?action=clear&target=users-unconfirmed'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["users"]["unconfirmed"] == 0) echo ' disabled'; ?>">
             <span class="icon glyphicon glyphicon-user"></span>
             <?= Yii::t('app/modules/services', 'Delete unconfirmed users') ?>
@@ -87,10 +87,10 @@ $bundle = MainAsset::register($this);
     }
 ?>
 <?php
-    if(class_exists('\wdmg\api\models\Api') && isset(Yii::$app->modules['api'])) {
+    if ($intance = $module->moduleLoaded('api', true)) {
 ?>
     <div class="col-xs-12" style="padding-bottom:20px;">
-        <h4 class="page-title"><?= Yii::$app->getModule('api')->name; ?></h4>
+        <h4 class="page-title"><?= $intance->name; ?></h4>
         <a href="<?php if ($size["api"]["users"] == 0) echo '#'; else echo '?action=clear&target=api-disable'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["api"]["users"] == 0) echo ' disabled'; ?>">
             <span class="icon glyphicon glyphicon-user"></span>
             <?= Yii::t('app/modules/services', 'Disable all users') ?>

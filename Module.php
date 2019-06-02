@@ -6,7 +6,7 @@ namespace wdmg\services;
  * Yii2 Services
  *
  * @category        Module
- * @version         1.1.2
+ * @version         1.1.3
  * @author          Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>
  * @link            https://github.com/wdmg/yii2-tasks
  * @copyright       Copyright (c) 2019 W.D.M.Group, Ukraine
@@ -29,7 +29,7 @@ class Module extends \yii\base\Module
     /**
      * {@inheritdoc}
      */
-    public $defaultRoute = 'index';
+    public $defaultRoute = "services/index";
 
     /**
      * @var string the prefix for routing of module
@@ -54,7 +54,7 @@ class Module extends \yii\base\Module
     /**
      * @var string the module version
      */
-    private $version = "1.1.2";
+    private $version = "1.1.3";
 
     /**
      * @var integer, priority of initialization
@@ -160,5 +160,26 @@ class Module extends \yii\base\Module
             'url' => [$this->routePrefix . '/services/'],
             'active' => in_array(\Yii::$app->controller->module->id, ['services'])
         ];
+    }
+
+    /**
+     * Build dashboard navigation items for NavBar
+     * @return object or null
+     */
+    public function moduleLoaded($id, $returnInstance = false)
+    {
+        $parent = $this->module->id;
+        if ($parent)
+            $id = $parent . '/' . $id;
+
+        if (Yii::$app->hasModule($id)) {
+            if($returnInstance)
+                return Yii::$app->getModule($id);
+            else
+                return true;
+        } else {
+            return false;
+        }
+        return null;
     }
 }
