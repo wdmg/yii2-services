@@ -5,7 +5,7 @@ System Service Manager for Yii2
 
 # Requirements 
 * PHP 5.6 or higher
-* Yii2 v.2.0.19 and newest
+* Yii2 v.2.0.20 and newest
 * [Yii2 Activity](https://github.com/wdmg/yii2-activity) module (support/optionaly)
 * [Yii2 Stats](https://github.com/wdmg/yii2-stats) module (support/optionaly)
 * [Yii2 Users](https://github.com/wdmg/yii2-users) module (support/optionaly)
@@ -38,12 +38,6 @@ To add a module to the project, add the following data in your configuration fil
         ...
     ],
 
-If you have connected the module not via a composer add Bootstrap section:
-
-`
-$config['bootstrap'][] = 'wdmg\services\Bootstrap';
-`
-
 # Routing
 Use the `Module::dashboardNavItems()` method of the module to generate a navigation items list for NavBar, like this:
 
@@ -59,5 +53,5 @@ Use the `Module::dashboardNavItems()` method of the module to generate a navigat
     ?>
 
 # Status and version [in progress development]
+* v.1.1.4 - Module transferred to base module interface. Update Yii2 version.
 * v.1.1.3 - Bugfix, routing and refactoring
-* v.1.1.2 - Update Yii2 version

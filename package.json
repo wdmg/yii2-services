@@ -1,6 +1,6 @@
 {
   "name": "yii2-services-assets",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Services Module Assets",
   "main": "Gruntfile.js",
   "scripts": {
