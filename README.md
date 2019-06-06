@@ -6,6 +6,7 @@ System Service Manager for Yii2
 # Requirements 
 * PHP 5.6 or higher
 * Yii2 v.2.0.20 and newest
+* [Yii2 Base](https://github.com/wdmg/yii2-base) module (required)
 * [Yii2 Activity](https://github.com/wdmg/yii2-activity) module (support/optionaly)
 * [Yii2 Stats](https://github.com/wdmg/yii2-stats) module (support/optionaly)
 * [Yii2 Users](https://github.com/wdmg/yii2-users) module (support/optionaly)
