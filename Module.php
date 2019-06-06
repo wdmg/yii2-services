@@ -6,7 +6,7 @@ namespace wdmg\services;
  * Yii2 Services
  *
  * @category        Module
- * @version         1.1.4
+ * @version         1.1.5
  * @author          Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>
  * @link            https://github.com/wdmg/yii2-tasks
  * @copyright       Copyright (c) 2019 W.D.M.Group, Ukraine
@@ -45,7 +45,7 @@ class Module extends BaseModule
     /**
      * @var string the module version
      */
-    private $version = "1.1.4";
+    private $version = "1.1.5";
 
     /**
      * @var integer, priority of initialization
@@ -53,26 +53,23 @@ class Module extends BaseModule
     private $priority = 9;
 
     /**
-     * Build dashboard navigation items for NavBar
-     * @return object or null
+     * {@inheritdoc}
      */
-    public function moduleLoaded($id, $returnInstance = false)
+    public function init()
     {
-        $parent = $this->module->id;
-        if ($parent)
-            $id = $parent . '/' . $id;
+        parent::init();
 
-        if (Yii::$app->hasModule($id)) {
-            if($returnInstance)
-                return Yii::$app->getModule($id);
-            else
-                return true;
-        } else {
-            return false;
-        }
-        return null;
+        // Set version of current module
+        $this->setVersion($this->version);
+
+        // Set priority of current module
+        $this->setPriority($this->priority);
+
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function bootstrap($app)
     {
         parent::bootstrap($app);

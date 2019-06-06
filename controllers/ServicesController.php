@@ -163,7 +163,7 @@ class ServicesController extends Controller
             }
         }
 
-        if (class_exists('\wdmg\activity\models\Activity') && $this->module->moduleLoaded('activity')) {
+        if (class_exists('\wdmg\stats\models\Visitors') && $this->module->moduleLoaded('activity')) {
             $activity = new \wdmg\activity\models\Activity();
 
             if ($action == 'clear' && $target == 'activity') {
@@ -279,18 +279,67 @@ class ServicesController extends Controller
             $clients = new \wdmg\api\models\API();
 
             if ($action == 'clear' && $target == 'api-disable') {
-
+                if ($clients::updateAll(['status' => $clients::API_CLIENT_STATUS_DISABLED])) {
+                    $alerts[] = [
+                        'type' => 'success',
+                        'message' => Yii::t('app/modules/services', 'All clients has been successfully disabled!'),
+                    ];
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/services', 'Error disabling clients.'),
+                    ];
+                }
             }
 
             if ($action == 'clear' && $target == 'api-delete') {
+                $removed = $clients::find()->where(['status' => $clients::API_CLIENT_STATUS_DISABLED])->all();
+
+                $count = 0;
+                foreach ($removed as $remove) {
+                    if($remove->delete())
+                        $count++;
+                }
+
+                if ($count > 0) {
+                    $alerts[] = [
+                        'type' => 'success',
+                        'message' => Yii::t('app/modules/services', 'Disabled clients has been successfully deleted!'),
+                    ];
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/services', 'Error deleting disabled clients.'),
+                    ];
+                }
 
             }
 
             if ($action == 'clear' && $target == 'api-tokens') {
 
+                $count = 0;
+
+                $items = $clients::find()->where(['status' => $clients::API_CLIENT_STATUS_ACTIVE])->all();
+                foreach ($items as $item) {
+                    $item->access_token = $clients->generateAccessToken();
+                    if ($item->update())
+                        $count++;
+                }
+
+                if ($count > 0) {
+                    $alerts[] = [
+                        'type' => 'success',
+                        'message' => Yii::t('app/modules/services', 'Access tokens successfully updated!'),
+                    ];
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/services', 'Error updating access tokens.'),
+                    ];
+                }
             }
 
-            $size['api']['users'] = intval($clients::find()->count());
+            $size['api']['users'] = intval($clients::find()->where(['status' => $clients::API_CLIENT_STATUS_ACTIVE])->count());
             $size['api']['disabled'] = intval($clients::find()->where(['status' => $clients::API_CLIENT_STATUS_DISABLED])->count());
             $size['api']['tokens'] = intval($clients::find()->where(['status' => $clients::API_CLIENT_STATUS_ACTIVE])->count());
         }
