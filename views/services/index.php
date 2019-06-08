@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use wdmg\services\MainAsset;
+use wdmg\services\ServicesAsset;
 use wdmg\helpers\StringHelper;
 
 /* @var $this yii\web\View */
@@ -9,7 +9,7 @@ use wdmg\helpers\StringHelper;
 
 $this->title = Yii::t('app/modules/services', 'Services');
 $this->params['breadcrumbs'][] = $this->title;
-$bundle = MainAsset::register($this);
+$bundle = ServicesAsset::register($this);
 
 ?>
 <div class="page-header">
