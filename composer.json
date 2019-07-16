@@ -4,7 +4,7 @@
   "keywords": ["yii2", "yii2-services", "services", "wdmg"],
   "type": "yii2-extension",
   "license": "MIT",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "homepage": "https://github.com/wdmg/yii2-services",
   "support": {
     "source": "https://github.com/wdmg/yii2-services",
@@ -29,6 +29,11 @@
   "autoload": {
     "psr-4": {
       "wdmg\\services\\": ""
+    }
+  },
+  "extra": {
+    "options": {
+      "routePrefix": "admin"
     }
   }
 }
