@@ -1,5 +1,5 @@
 /*!
- * Main gruntfile for Bootstrap4 template
+ * Main gruntfile for assets
  * Homepage: https://wdmg.com.ua/
  * Author: Vyshnyvetskyy Alexsander (alex.vyshyvetskyy@gmail.com)
  * Copyright 2019 W.D.M.Group, Ukraine
