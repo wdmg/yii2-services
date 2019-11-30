@@ -163,7 +163,7 @@ class ServicesController extends Controller
             }
         }
 
-        if (class_exists('\wdmg\stats\models\Visitors') && $this->module->moduleLoaded('activity')) {
+        if (class_exists('\wdmg\activity\models\Activity') && $this->module->moduleLoaded('activity')) {
             $activity = new \wdmg\activity\models\Activity();
 
             if ($action == 'clear' && $target == 'activity') {
@@ -181,6 +181,26 @@ class ServicesController extends Controller
                 }
             }
             $size['activity'] = intval($activity::find()->count());
+        }
+
+        if (class_exists('\wdmg\mailer\models\Mails') && $this->module->moduleLoaded('mailer')) {
+            $activity = new \wdmg\mailer\models\Mails();
+
+            if ($action == 'clear' && $target == 'mailer') {
+                $removed = $activity::deleteAll();
+                if ($removed > 0) {
+                    $alerts[] = [
+                        'type' => 'success',
+                        'message' => Yii::t('app/modules/services', 'Mail cache successfully cleaned!'),
+                    ];
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/services', 'Error clearing mail cache.'),
+                    ];
+                }
+            }
+            $size['mailer'] = intval($activity::find()->count());
         }
 
 

@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## 1.1.8 (2019-11-30)
+ * Added clearing for Mailer module
+
 ## 1.1.7 (2019-07-16)
  * Added extra options to composer.json and navbar menu icon
 

@@ -54,6 +54,20 @@ $bundle = ServicesAsset::register($this);
     }
 ?>
 <?php
+    if ($intance = $module->moduleLoaded('mailer', true)) {
+?>
+    <div class="col-xs-12" style="padding-bottom:20px;">
+        <h4 class="page-title"><?= $intance->name; ?></h4>
+        <a href="<?php if ($size["activity"] == 0) echo '#'; else echo '?action=clear&target=mailer'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["mailer"] == 0) echo ' disabled'; ?>">
+            <span class="icon glyphicon glyphicon-envelope"></span>
+            <?= Yii::t('app/modules/services', 'Clear mail cache') ?>
+            <span class="descr text-primary"><?= StringHelper::integerAmount($size["mailer"], 2, true); ?></span>
+        </a>
+    </div>
+<?php
+    }
+?>
+<?php
     if ($intance = $module->moduleLoaded('stats', true)) {
 ?>
     <div class="col-xs-12" style="padding-bottom:20px;">

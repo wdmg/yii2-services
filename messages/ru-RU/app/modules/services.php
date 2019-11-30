@@ -32,11 +32,11 @@ return [
     'Error clearing statistics.' => 'Ошибка очистки статистики.',
 
     'Delete unconfirmed users' => 'Удалить неподтвержденных пользователей',
-    'Unconfirmed users has been successfully deleted!' => 'Неподтвержденные пользователи успешно удалены.',
+    'Unconfirmed users has been successfully deleted!' => 'Неподтвержденные пользователи успешно удалены!',
     'Error deleting unconfirmed users.' => 'Ошибка удаления неподтвержденных пользователей.',
 
     'Delete blocked users' => 'Удалить заблокированных пользователей',
-    'Blocked users has been successfully deleted!' => 'Заблокированные пользователи успешно удалены.',
+    'Blocked users has been successfully deleted!' => 'Заблокированные пользователи успешно удалены!',
     'Error deleting blocked users.' => 'Ошибка удаления заблокированных пользователей.',
 
     'Disable all users' => 'Деактивировать всех пользователей',
@@ -50,6 +50,10 @@ return [
     'Drop all access-token`s' => 'Сбросить все токены доступа',
     'Access tokens successfully updated!' => 'Токены доступа успешно обновлены!',
     'Error updating access tokens.' => 'Ошибка обновления токенов доступа.',
+
+    'Clear mail cache' => 'Очистить кеш почты',
+    'Mail cache successfully cleaned!' => 'Кеш почты успешно удалён!',
+    'Error clearing mail cache.' => 'Ошибка удаления кеша почты.',
 
 ];
 
