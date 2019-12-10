@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## 1.1.9 (2019-12-10)
+ * Fixed deprecated class declaration
+
 ## 1.1.8 (2019-11-30)
  * Added clearing for Mailer module
 

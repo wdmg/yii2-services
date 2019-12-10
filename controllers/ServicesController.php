@@ -27,13 +27,13 @@ class ServicesController extends Controller
     {
         $behaviors = [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
             ],
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     [
                         'roles' => ['admin'],
@@ -46,7 +46,7 @@ class ServicesController extends Controller
         // If auth manager not configured use default access control
         if(!Yii::$app->authManager) {
             $behaviors['access'] = [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     [
                         'roles' => ['@'],

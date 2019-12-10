@@ -1,4 +1,8 @@
-[![Progress](https://img.shields.io/badge/required-Yii2_v2.0.13-blue.svg)](https://packagist.org/packages/yiisoft/yii2) [![Github all releases](https://img.shields.io/github/downloads/wdmg/yii2-tasks/total.svg)](https://GitHub.com/wdmg/yii2-tasks/releases/) [![GitHub version](https://badge.fury.io/gh/wdmg%2Fyii2-tasks.svg)](https://github.com/wdmg/yii2-tasks) ![Progress](https://img.shields.io/badge/progress-in_development-red.svg) [![GitHub license](https://img.shields.io/github/license/wdmg/yii2-tasks.svg)](https://github.com/wdmg/yii2-tasks/blob/master/LICENSE) 
+[![Progress](https://img.shields.io/badge/required-Yii2_v2.0.13-blue.svg)](https://packagist.org/packages/yiisoft/yii2)
+[![Github all releases](https://img.shields.io/github/downloads/wdmg/yii2-tasks/total.svg)](https://GitHub.com/wdmg/yii2-tasks/releases/)
+[![GitHub version](https://badge.fury.io/gh/wdmg%2Fyii2-tasks.svg)](https://github.com/wdmg/yii2-tasks)
+![Progress](https://img.shields.io/badge/progress-ready_to_use-green.svg)
+[![GitHub license](https://img.shields.io/github/license/wdmg/yii2-tasks.svg)](https://github.com/wdmg/yii2-tasks/blob/master/LICENSE) 
 
 # Yii2 Services Module
 System Service Manager for Yii2
@@ -53,7 +57,7 @@ Use the `Module::dashboardNavItems()` method of the module to generate a navigat
         ]);
     ?>
 
-# Status and version [in progress development]
+# Status and version [ready to use]
+* v.1.1.9 - Fixed deprecated class declaration
 * v.1.1.8 - Added clearing for Mailer module
 * v.1.1.7 - Added extra options to composer.json and navbar menu icon
-* v.1.1.6 - Added choice param for non interactive mode
