@@ -1,6 +1,10 @@
 Changelog
 =========
 
+## 1.1.10 (2020-03-27)
+ * Added clearing for Google AMP, Yandex.Turbo, RSS-feed, Search and Sitemap modules
+ * Up to date dependencies
+ 
 ## 1.1.9 (2019-12-10)
  * Fixed deprecated class declaration
 

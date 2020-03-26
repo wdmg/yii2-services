@@ -43,6 +43,24 @@ return [
     'All clients has been successfully disabled!' => 'Все клиенты были успешно отключены!',
     'Error disabling clients.' => 'Ошибка отключения клиентов.',
 
+
+
+    'Clear Live Search cache' => 'Очистить кеш живого поиска',
+    'Live Search cache has been successfully cleaned!' => 'Кеш живого поиска успешно очищен!',
+    'Error clearing Live Search cache.' => 'Ошибка очистки кеша живого поиска.',
+
+    'Clear RSS-feed cache' => 'Очистить кеш RSS-ленты',
+    'Clear Yandex.Turbo cache' => 'Очистить кеш Яндекс.Турбо',
+    'Clear Google AMP cache' => 'Очистить кеш Google AMP',
+    'Clear Sitemap cache' => 'Очистить кеш карты сайта',
+
+    'Drop Search index' => 'Удалить поисковый индекс',
+    'Search index has been successfully cleaned!' => 'Индекс поиска успешно сброшен!',
+    'Error clearing Search index.' => 'Ошибка сброса поискового индекса',
+
+
+
+
     'Delete disabled users' => 'Удалить деактивированных пользователей',
     'Disabled clients has been successfully deleted!' => 'Отключенные клиенты были успешно удалены!',
     'Error deleting disabled clients.' => 'Ошибка удаления отключенных клиентов.',

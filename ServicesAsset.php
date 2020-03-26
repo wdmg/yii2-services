@@ -9,16 +9,11 @@ class ServicesAsset extends AssetBundle
     public $css = [
         'css/services.css',
     ];
-    /*public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-    ];*/
 
     public function init()
     {
         parent::init();
     }
-
 }
 
 ?>

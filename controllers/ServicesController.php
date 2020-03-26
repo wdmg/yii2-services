@@ -203,7 +203,6 @@ class ServicesController extends Controller
             $size['mailer'] = intval($activity::find()->count());
         }
 
-
         if (class_exists('\wdmg\stats\models\Visitors') && $this->module->moduleLoaded('stats')) {
             $stats = new \wdmg\stats\models\Visitors();
 
@@ -363,6 +362,165 @@ class ServicesController extends Controller
             $size['api']['disabled'] = intval($clients::find()->where(['status' => $clients::API_CLIENT_STATUS_DISABLED])->count());
             $size['api']['tokens'] = intval($clients::find()->where(['status' => $clients::API_CLIENT_STATUS_ACTIVE])->count());
         }
+
+        if ($this->module->moduleLoaded('search') && class_exists('\wdmg\search\models\Search') && class_exists('\wdmg\search\models\LiveSearch')) {
+
+            $search = new \wdmg\search\models\Search();
+            $live = new \wdmg\search\models\LiveSearch();
+
+            if ($action == 'clear' && $target == 'live-search') {
+                if ($live::flushCache())
+                    $alerts[] = [
+                        'type' => 'success',
+                        'message' => Yii::t('app/modules/services', 'Live Search cache has been successfully cleaned!'),
+                    ];
+                else
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/services', 'Error clearing Live Search cache.'),
+                    ];
+            } elseif ($action == 'drop' && $target == 'search-index') {
+                if ($search::deleteAll())
+                    $alerts[] = [
+                        'type' => 'success',
+                        'message' => Yii::t('app/modules/services', 'Search index has been successfully cleaned!'),
+                    ];
+                else
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/services', 'Error clearing Search index.'),
+                    ];
+            }
+
+            $size['search-index'] = intval($search::find()->count());
+            $cached = Yii::$app->getCache()->get(md5('live-search'));
+            if (is_countable($cached))
+                $size['live-search'] = count($cached);
+            else
+                $size['live-search'] = 0;
+
+        }
+
+        if ($this->module->moduleLoaded('rss')) {
+            $cached = Yii::$app->getCache()->get(md5('rss-feed'));
+            if (is_countable($cached))
+                $size['rss'] = count($cached);
+            else
+                $size['rss'] = 0;
+
+            if ($action == 'clear' && $target == 'rss') {
+                if ($cached = Yii::$app->getCache()) {
+                    if ($cached->delete(md5('rss-feed'))) {
+                        $alerts[] = [
+                            'type' => 'success',
+                            'message' => Yii::t('app/modules/rss', 'RSS-feed cache has been successfully flushing!')
+                        ];
+                    } else {
+                        $alerts[] = [
+                            'type' => 'warning',
+                            'message' => Yii::t('app/modules/rss', 'An error occurred while flushing the RSS-feed cache.')
+                        ];
+                    }
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/rss', 'Error! Cache component not configured in the application.')
+                    ];
+                }
+            }
+
+        }
+
+        if ($this->module->moduleLoaded('turbo')) {
+            $cached = Yii::$app->getCache()->get(md5('yandex-turbo'));
+            if (is_countable($cached))
+                $size['turbo'] = count($cached);
+            else
+                $size['turbo'] = 0;
+
+            if ($action == 'clear' && $target == 'turbo') {
+                if ($cached = Yii::$app->getCache()) {
+                    if ($cached->delete(md5('yandex-turbo'))) {
+                        $alerts[] = [
+                            'type' => 'success',
+                            'message' => Yii::t('app/modules/turbo', 'Turbo-pages cache has been successfully flushing!')
+                        ];
+                    } else {
+                        $alerts[] = [
+                            'type' => 'warning',
+                            'message' => Yii::t('app/modules/turbo', 'An error occurred while flushing the turbo-pages cache.')
+                        ];
+                    }
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/turbo', 'Error! Cache component not configured in the application.')
+                    ];
+                }
+            }
+
+        }
+
+        if ($this->module->moduleLoaded('amp')) {
+            $cached = Yii::$app->getCache()->get(md5('google-amp'));
+            if (is_countable($cached))
+                $size['amp'] = count($cached);
+            else
+                $size['amp'] = 0;
+
+            if ($action == 'clear' && $target == 'amp') {
+                if ($cached = Yii::$app->getCache()) {
+                    if ($cached->delete(md5('google-amp'))) {
+                        $alerts[] = [
+                            'type' => 'success',
+                            'message' => Yii::t('app/modules/amp', 'AMP pages cache has been successfully flushing!')
+                        ];
+                    } else {
+                        $alerts[] = [
+                            'type' => 'warning',
+                            'message' => Yii::t('app/modules/amp', 'An error occurred while flushing the AMP pages cache.')
+                        ];
+                    }
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/amp', 'Error! Cache component not configured in the application.')
+                    ];
+                }
+            }
+
+        }
+
+        if ($this->module->moduleLoaded('sitemap')) {
+            $cached = Yii::$app->getCache()->get(md5('sitemap'));
+            if (is_countable($cached))
+                $size['sitemap'] = count($cached);
+            else
+                $size['sitemap'] = 0;
+
+            if ($action == 'clear' && $target == 'sitemap') {
+                if ($cached = Yii::$app->getCache()) {
+                    if ($cached->delete(md5('sitemap'))) {
+                        $alerts[] = [
+                            'type' => 'success',
+                            'message' => Yii::t('app/modules/sitemap', 'Sitemap cache has been successfully flushing!')
+                        ];
+                    } else {
+                        $alerts[] = [
+                            'type' => 'warning',
+                            'message' => Yii::t('app/modules/sitemap', 'An error occurred while flushing the sitemap cache.')
+                        ];
+                    }
+                } else {
+                    $alerts[] = [
+                        'type' => 'warning',
+                        'message' => Yii::t('app/modules/sitemap', 'Error! Cache component not configured in the application.')
+                    ];
+                }
+            }
+
+        }
+
 
         foreach ($alerts as $alert) {
             Yii::$app->getSession()->setFlash($alert['type'], $alert['message']);

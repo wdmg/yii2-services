@@ -67,6 +67,85 @@ $bundle = ServicesAsset::register($this);
 <?php
     }
 ?>
+
+
+
+<?php
+    if ($intance = $module->moduleLoaded('search', true)) {
+?>
+    <div class="col-xs-12" style="padding-bottom:20px;">
+        <h4 class="page-title"><?= $intance->name; ?></h4>
+        <a href="<?php if ($size["live-search"] == 0) echo '#'; else echo '?action=clear&target=live-search'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["live-search"] == 0) echo ' disabled'; ?>">
+            <span class="icon fa fa-fw fa-search"></span>
+            <?= Yii::t('app/modules/services', 'Clear Live Search cache') ?>
+            <span class="descr text-primary"><?= StringHelper::integerAmount($size["live-search"], 2, true); ?></span>
+        </a>
+        <a href="<?php if ($size["search-index"] == 0) echo '#'; else echo '?action=drop&target=search-index'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["search-index"] == 0) echo ' disabled'; ?>">
+            <span class="icon fa fa-fw fa-search"></span>
+            <?= Yii::t('app/modules/services', 'Drop Search index') ?>
+            <span class="descr text-primary"><?= StringHelper::integerAmount($size["search-index"], 2, true); ?></span>
+        </a>
+    </div>
+<?php
+    }
+?>
+<?php
+    if ($intance = $module->moduleLoaded('rss', true)) {
+?>
+    <div class="col-xs-12" style="padding-bottom:20px;">
+        <h4 class="page-title"><?= $intance->name; ?></h4>
+        <a href="<?php if ($size["rss"] == 0) echo '#'; else echo '?action=clear&target=rss'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["rss"] == 0) echo ' disabled'; ?>">
+            <span class="icon fa fa-fw fa-rss"></span>
+            <?= Yii::t('app/modules/services', 'Clear RSS-feed cache') ?>
+            <span class="descr text-primary"><?= StringHelper::integerAmount($size["rss"], 2, true); ?></span>
+        </a>
+    </div>
+<?php
+    }
+?>
+<?php
+    if ($intance = $module->moduleLoaded('turbo', true)) {
+?>
+    <div class="col-xs-12" style="padding-bottom:20px;">
+        <h4 class="page-title"><?= $intance->name; ?></h4>
+        <a href="<?php if ($size["turbo"] == 0) echo '#'; else echo '?action=clear&target=turbo'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["turbo"] == 0) echo ' disabled'; ?>">
+            <span class="icon fa fa-fw fa-rocket"></span>
+            <?= Yii::t('app/modules/services', 'Clear Yandex.Turbo cache') ?>
+            <span class="descr text-primary"><?= StringHelper::integerAmount($size["turbo"], 2, true); ?></span>
+        </a>
+    </div>
+<?php
+    }
+?>
+<?php
+    if ($intance = $module->moduleLoaded('amp', true)) {
+?>
+    <div class="col-xs-12" style="padding-bottom:20px;">
+        <h4 class="page-title"><?= $intance->name; ?></h4>
+        <a href="<?php if ($size["amp"] == 0) echo '#'; else echo '?action=clear&target=amp'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["amp"] == 0) echo ' disabled'; ?>">
+            <span class="icon fa fa-fw fa-bolt"></span>
+            <?= Yii::t('app/modules/services', 'Clear Google AMP cache') ?>
+            <span class="descr text-primary"><?= StringHelper::integerAmount($size["amp"], 2, true); ?></span>
+        </a>
+    </div>
+<?php
+    }
+?>
+<?php
+    if ($intance = $module->moduleLoaded('sitemap', true)) {
+?>
+    <div class="col-xs-12" style="padding-bottom:20px;">
+        <h4 class="page-title"><?= $intance->name; ?></h4>
+        <a href="<?php if ($size["sitemap"] == 0) echo '#'; else echo '?action=clear&target=sitemap'; ?>" class="col-xs-4 col-sm-3 col-md-2 list-group-item<?php if ($size["sitemap"] == 0) echo ' disabled'; ?>">
+            <span class="icon fa fa-fw fa-sitemap"></span>
+            <?= Yii::t('app/modules/services', 'Clear Sitemap cache') ?>
+            <span class="descr text-primary"><?= StringHelper::integerAmount($size["sitemap"], 2, true); ?></span>
+        </a>
+    </div>
+<?php
+    }
+?>
+
 <?php
     if ($intance = $module->moduleLoaded('stats', true)) {
 ?>

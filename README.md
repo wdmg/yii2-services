@@ -1,4 +1,4 @@
-[![Progress](https://img.shields.io/badge/required-Yii2_v2.0.13-blue.svg)](https://packagist.org/packages/yiisoft/yii2)
+[![Progress](https://img.shields.io/badge/required-Yii2_v2.0.33-blue.svg)](https://packagist.org/packages/yiisoft/yii2)
 [![Github all releases](https://img.shields.io/github/downloads/wdmg/yii2-tasks/total.svg)](https://GitHub.com/wdmg/yii2-tasks/releases/)
 [![GitHub version](https://badge.fury.io/gh/wdmg%2Fyii2-tasks.svg)](https://github.com/wdmg/yii2-tasks)
 ![Progress](https://img.shields.io/badge/progress-ready_to_use-green.svg)
@@ -9,7 +9,7 @@ System Service Manager for Yii2
 
 # Requirements 
 * PHP 5.6 or higher
-* Yii2 v.2.0.20 and newest
+* Yii2 v.2.0.33 and newest
 * [Yii2 Base](https://github.com/wdmg/yii2-base) module (required)
 * [Yii2 Activity](https://github.com/wdmg/yii2-activity) module (support/optionaly)
 * [Yii2 Stats](https://github.com/wdmg/yii2-stats) module (support/optionaly)
@@ -58,6 +58,7 @@ Use the `Module::dashboardNavItems()` method of the module to generate a navigat
     ?>
 
 # Status and version [ready to use]
+* v.1.1.10 - Added clearing for Google AMP, Yandex.Turbo, RSS-feed, Search and Sitemap modules
 * v.1.1.9 - Fixed deprecated class declaration
 * v.1.1.8 - Added clearing for Mailer module
 * v.1.1.7 - Added extra options to composer.json and navbar menu icon
