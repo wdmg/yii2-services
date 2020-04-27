@@ -1,6 +1,11 @@
 Changelog
 =========
 
+## 1.1.11 (2020-04-28)
+ * Update README.md and dependencies
+ * Updating year in copyrights
+ * Change icon class (FontAwesome update)
+ 
 ## 1.1.10 (2020-03-27)
  * Added clearing for Google AMP, Yandex.Turbo, RSS-feed, Search and Sitemap modules
  * Up to date dependencies

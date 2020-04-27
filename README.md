@@ -1,8 +1,8 @@
-[![Progress](https://img.shields.io/badge/required-Yii2_v2.0.33-blue.svg)](https://packagist.org/packages/yiisoft/yii2)
-[![Github all releases](https://img.shields.io/github/downloads/wdmg/yii2-tasks/total.svg)](https://GitHub.com/wdmg/yii2-tasks/releases/)
-[![GitHub version](https://badge.fury.io/gh/wdmg%2Fyii2-tasks.svg)](https://github.com/wdmg/yii2-tasks)
+[![Yii2](https://img.shields.io/badge/required-Yii2_v2.0.33-blue.svg)](https://packagist.org/packages/yiisoft/yii2)
+[![Downloads](https://img.shields.io/packagist/dt/wdmg/yii2-services.svg)](https://packagist.org/packages/wdmg/yii2-services)
+[![Packagist Version](https://img.shields.io/packagist/v/wdmg/yii2-services.svg)](https://packagist.org/packages/wdmg/yii2-services)
 ![Progress](https://img.shields.io/badge/progress-ready_to_use-green.svg)
-[![GitHub license](https://img.shields.io/github/license/wdmg/yii2-tasks.svg)](https://github.com/wdmg/yii2-tasks/blob/master/LICENSE) 
+[![GitHub license](https://img.shields.io/github/license/wdmg/yii2-services.svg)](https://github.com/wdmg/yii2-services/blob/master/LICENSE)
 
 # Yii2 Services Module
 System Service Manager for Yii2
@@ -14,6 +14,13 @@ System Service Manager for Yii2
 * [Yii2 Activity](https://github.com/wdmg/yii2-activity) module (support/optionaly)
 * [Yii2 Stats](https://github.com/wdmg/yii2-stats) module (support/optionaly)
 * [Yii2 Users](https://github.com/wdmg/yii2-users) module (support/optionaly)
+* [Yii2 Mailer](https://github.com/wdmg/yii2-mailer) module (support/optionaly)
+* [Yii2 API](https://github.com/wdmg/yii2-api) module (support/optionaly)
+* [Yii2 Search](https://github.com/wdmg/yii2-search) module (support/optionaly)
+* [Yii2 RSS](https://github.com/wdmg/yii2-rss) module (support/optionaly)
+* [Yii2 Yandex.Turbo](https://github.com/wdmg/yii2-turbo) module (support/optionaly)
+* [Yii2 Google AMP](https://github.com/wdmg/yii2-amp) module (support/optionaly)
+* [Yii2 Sitemap](https://github.com/wdmg/yii2-sitemap) module (support/optionaly)
 
 
 # Installation
@@ -58,6 +65,7 @@ Use the `Module::dashboardNavItems()` method of the module to generate a navigat
     ?>
 
 # Status and version [ready to use]
+* v.1.1.11 - Update README.md and dependencies
 * v.1.1.10 - Added clearing for Google AMP, Yandex.Turbo, RSS-feed, Search and Sitemap modules
 * v.1.1.9 - Fixed deprecated class declaration
 * v.1.1.8 - Added clearing for Mailer module
