@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## 1.1.12 (2020-06-28)
+ * Update dependencies, README.md
+
 ## 1.1.11 (2020-04-28)
  * Update README.md and dependencies
  * Updating year in copyrights
