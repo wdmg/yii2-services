@@ -394,7 +394,7 @@ class ServicesController extends Controller
 
             $size['search-index'] = intval($search::find()->count());
             $cached = Yii::$app->getCache()->get(md5('live-search'));
-            if (is_countable($cached))
+            if (is_array($cached))
                 $size['live-search'] = count($cached);
             else
                 $size['live-search'] = 0;
@@ -403,7 +403,7 @@ class ServicesController extends Controller
 
         if ($this->module->moduleLoaded('rss')) {
             $cached = Yii::$app->getCache()->get(md5('rss-feed'));
-            if (is_countable($cached))
+            if (is_array($cached))
                 $size['rss'] = count($cached);
             else
                 $size['rss'] = 0;
@@ -433,7 +433,7 @@ class ServicesController extends Controller
 
         if ($this->module->moduleLoaded('turbo')) {
             $cached = Yii::$app->getCache()->get(md5('yandex-turbo'));
-            if (is_countable($cached))
+            if (is_array($cached))
                 $size['turbo'] = count($cached);
             else
                 $size['turbo'] = 0;
@@ -463,7 +463,7 @@ class ServicesController extends Controller
 
         if ($this->module->moduleLoaded('amp')) {
             $cached = Yii::$app->getCache()->get(md5('google-amp'));
-            if (is_countable($cached))
+            if (is_array($cached))
                 $size['amp'] = count($cached);
             else
                 $size['amp'] = 0;
@@ -493,7 +493,7 @@ class ServicesController extends Controller
 
         if ($this->module->moduleLoaded('sitemap')) {
             $cached = Yii::$app->getCache()->get(md5('sitemap'));
-            if (is_countable($cached))
+            if (is_array($cached))
                 $size['sitemap'] = count($cached);
             else
                 $size['sitemap'] = 0;

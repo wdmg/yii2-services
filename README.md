@@ -71,9 +71,6 @@ Use the `Module::dashboardNavItems()` method of the module to generate a navigat
     ?>
 
 # Status and version [ready to use]
+* v.2.0.0 - Update copyrights, fix nav menu
 * v.1.1.12 - Update dependencies, README.md
 * v.1.1.11 - Update README.md and dependencies
-* v.1.1.10 - Added clearing for Google AMP, Yandex.Turbo, RSS-feed, Search and Sitemap modules
-* v.1.1.9 - Fixed deprecated class declaration
-* v.1.1.8 - Added clearing for Mailer module
-* v.1.1.7 - Added extra options to composer.json and navbar menu icon

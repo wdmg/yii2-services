@@ -2,7 +2,7 @@
  * Main gruntfile for assets
  * Homepage: https://wdmg.com.ua/
  * Author: Vyshnyvetskyy Alexsander (alex.vyshyvetskyy@gmail.com)
- * Copyright 2019 W.D.M.Group, Ukraine
+ * Copyright 2019-2023 W.D.M.Group, Ukraine
  * Licensed under MIT
 */
 
@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         sass: {
             style: {
                 files: {
-                    'assets/css/services.css': ['assets/scss/services.scss']
+                    'assets/css/services.css': ['src/scss/services.scss']
                 }
             }
         },
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         },
         watch: {
             scss: {
-                files: ['assets/scss/services.scss'],
+                files: ['src/scss/services.scss'],
                 tasks: ['sass:style', 'cssmin'],
                 options: {
                     spawn: false
